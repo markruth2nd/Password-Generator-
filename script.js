@@ -115,7 +115,10 @@ function getPasswordOptions() {
   let hasNumbericalCharacters = confirm("Click OK if you want your password to contain Numbers")
 
   let hasSpecialCharacters = confirm("Click OK if you want your password to contain any Special Characters")
+
+  if(hasLowerCaseCharacters === false && hasUpperCaseCharacters === false && hasNumbericalCharacters === false && hasSpecialCharacters === false){ allert("Must select at least one character option")}
 }
+
 
 
 // Function for getting a random element from an array
