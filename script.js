@@ -107,6 +107,14 @@ function getPasswordOptions() {
       }
     }
   }
+
+  let hasLowerCaseCharacters = confirm("Click OK if you want your password to contain any Lower Case Characters")
+
+  let hasUpperCaseCharacters = confirm("Click OK if you want your password to contain any Upper case Characters")
+
+  let hasNumbericalCharacters = confirm("Click OK if you want your password to contain Numbers")
+
+  let hasSpecialCharacters = confirm("Click OK if you want your password to contain any Special Characters")
 }
 
 
