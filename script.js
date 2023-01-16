@@ -161,10 +161,19 @@ function generatePassword() {
     possibleCharacter = possibleCharacter.concat(numericCharacters);
     guaranteedCharacter.push(getRandom(numericCharacters))
   }
-  if(options["hasSpecialCharacters"]) {
+  // THIS OPTION IS SHOWING THE DOT NOTATION WAY OF PRODUCING THE ABOVE 3 OPTIONS:
+  if(options.hasSpecialCharacters) {
     possibleCharacter = possibleCharacter.concat(specialCharacters);
     guaranteedCharacter.push(getRandom(specialCharacters))
   }
+
+  for(let index = 0; index < options.length; index++){
+    var generated = getRandom(possibleCharacter);
+    result.push(generated);
+  }
+  console.log(generated);
+
+  return result.join("");
   
 }
 
