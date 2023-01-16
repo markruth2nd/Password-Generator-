@@ -90,19 +90,36 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  let length = parsInt(
+  let length = parseInt(
   prompt("How may characters would you like your password to be?")
   )
+  if(isNaN(length) === true) {
+    alert("Password length must be provided as a number");
+    return;
+  } {
+    if(length < 10) {
+      alert("Password length must be at least 10 characters");
+      return;
+    } {
+      if(length > 65) {
+        alert("Password must be a maximum of 65 characters in length");
+        return;
+      }
+    }
+  }
 }
-console.table(getPasswordOptions)
+
+
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  let randomIndex = Math.floor(Math.random() * arr.length)
+  let randomElement = arr[randomIndex];
+  return randomElement;
 }
 
 // Function to generate password with user input
 function generatePassword() {
-
+  let options = getPasswordOptions();
 }
 
 // Get references to the #generate element
