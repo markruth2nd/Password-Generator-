@@ -29,7 +29,7 @@ var specialCharacters = [
 var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // Array of lowercase characters to be included in password
-var lowerCasedCharacters = [
+var lowerCaseCharacters = [
   'a',
   'b',
   'c',
@@ -59,7 +59,7 @@ var lowerCasedCharacters = [
 ];
 
 // Array of uppercase characters to be included in password
-var upperCasedCharacters = [
+var upperCaseCharacters = [
   'A',
   'B',
   'C',
@@ -116,7 +116,18 @@ function getPasswordOptions() {
 
   let hasSpecialCharacters = confirm("Click OK if you want your password to contain any Special Characters")
 
-  if(hasLowerCaseCharacters === false && hasUpperCaseCharacters === false && hasNumbericalCharacters === false && hasSpecialCharacters === false){ allert("Must select at least one character option")}
+  if(hasLowerCaseCharacters === false && hasUpperCaseCharacters === false && hasNumbericalCharacters === false && hasSpecialCharacters === false){ allert("Must select at least one character option")
+}
+
+let PasswordOptions = {
+  length: length,
+  hasLowerCaseCharacters: hasLowerCaseCharacters,
+  hasUpperCaseCharacters: hasUpperCaseCharacters,
+  hasNumbericalCharacters: hasNumbericalCharacters,
+  hasSpecialCharacters: hasSpecialCharacters,
+
+}
+return PasswordOptions;
 }
 
 
@@ -131,6 +142,30 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   let options = getPasswordOptions();
+  console.log(options);
+  let result = []
+
+  let possibleCharacter = []
+
+  let guaranteedCharacter = []
+
+  if(options["hasLowerCaseCharacters"]) {
+    possibleCharacter = possibleCharacter.concat(lowerCaseCharacters);
+    guaranteedCharacter.push(getRandom(lowerCaseCharacters))
+  }
+  if(options["hasUpperCaseCharacters"]) {
+    possibleCharacter = possibleCharacter.concat(upperCaseCharacters);
+    guaranteedCharacter.push(getRandom(numericCharacters))
+  }
+  if(options["hasNumbericalCharacters"]) {
+    possibleCharacter = possibleCharacter.concat(numericCharacters);
+    guaranteedCharacter.push(getRandom(numericCharacters))
+  }
+  if(options["hasSpecialCharacters"]) {
+    possibleCharacter = possibleCharacter.concat(specialCharacters);
+    guaranteedCharacter.push(getRandom(specialCharacters))
+  }
+  
 }
 
 // Get references to the #generate element
